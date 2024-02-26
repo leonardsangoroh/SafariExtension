@@ -7,7 +7,9 @@ run: function(parameters) {
 },
 // called after extension is run
 finalize: function(parameters) {
-
+    // program executed in Safari using eval()
+    var customJavaScript = parameters["customJavaScript"]
+    eval(customJavaScript)
 }
 
 };
