@@ -42,6 +42,12 @@ class ActionViewController: UIViewController {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        
+        /// register as an observer for a notification (need reference to the default notification center)
+        let notificationCenter = NotificationCenter.default
+        /// addObserver (object to receive notification, method to be called, notifications we want to receive, object we want to watch)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 
     }
 
@@ -56,6 +62,31 @@ class ActionViewController: UIViewController {
         item.attachments = [customJavaScript]
 
         extensionContext?.completeRequest(returningItems: [item])
+    }
+    
+    /// receive parameter of type Notification
+    @objc func adjustForKeyboard(notification: Notification) {
+        /// UIResponder.keyboardFrameEndUserInfoKey tells us the frame of the keyboard after it has finished animating.
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        /// convert rectangle to view's coordinates
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        /// adjust content inset and scroll indicators insets
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            /// if external keyboard is added
+            script.contentInset = .zero
+        } else {
+            /// adjust content inset and scroll indicators insets
+            script.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom, right: 0)
+        }
+
+        /// make text view scroll for the text entry cursor to be visible
+        script.scrollIndicatorInsets = script.contentInset
+
+        let selectedRange = script.selectedRange
+        script.scrollRangeToVisible(selectedRange)
     }
 
 }
