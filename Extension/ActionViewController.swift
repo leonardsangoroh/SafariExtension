@@ -16,6 +16,12 @@ class ActionViewController: UIViewController {
     
     @IBOutlet var script: UITextView!
     
+    var jsCode = "" {
+        didSet {
+            script.text = jsCode
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +48,7 @@ class ActionViewController: UIViewController {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(showScript))
         
         /// register as an observer for a notification (need reference to the default notification center)
         let notificationCenter = NotificationCenter.default
@@ -50,8 +57,26 @@ class ActionViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
 
     }
+    
+    @objc func showScript(){
+        let ac = UIAlertController(title: "Select Script", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Send Alert", style: .default, handler: launchCode))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+    
+    func launchCode(action:UIAlertAction){
+        if action.title == "Send Alert" {
+            
+            DispatchQueue.main.async {
+                self.jsCode = "alert('It has worked');"
+                print("Alert has been sent")
+                self.done()
+            }
+        }
+    }
 
-    /// send data back to Safari, at wich point it will appear inside finalize( ) funciton
+    /// send data back to Safari, at wich point it will appear inside finalize( ) function
     @IBAction func done() {
         // Return any edited content to the host app.
         // This template doesn't do anything, so we just echo the passed in items.
