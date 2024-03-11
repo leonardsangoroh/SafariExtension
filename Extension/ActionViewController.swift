@@ -9,6 +9,13 @@ import UIKit
 import MobileCoreServices
 import UniformTypeIdentifiers
 
+protocol ActionViewControllerDelegate: AnyObject {
+    func loadScript(fromScript loadedScript: String)
+    func deleteScript(idx scriptIndex: IndexPath)
+    func renameScript(newName name: String, idx: IndexPath)
+    func getScripts() -> [Script]
+}
+
 class ActionViewController: UIViewController {
     
     var pageTitle = ""
@@ -45,6 +52,7 @@ class ActionViewController: UIViewController {
                     
                     DispatchQueue.main.async {
                         self?.title = self?.pageTitle
+                        self?.currentPage = self?.pageURL
                     }
                 }
             }
@@ -67,7 +75,7 @@ class ActionViewController: UIViewController {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(showScript))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(showOptions))
         
         /// register as an observer for a notification (need reference to the default notification center)
         let notificationCenter = NotificationCenter.default
@@ -77,14 +85,23 @@ class ActionViewController: UIViewController {
 
     }
     
-    @objc func showScript(){
-        let ac = UIAlertController(title: "Select Script", message: nil, preferredStyle: .actionSheet)
+    @objc func showOptions(){
+        let ac = UIAlertController(title: "Select Option", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Send Alert", style: .default, handler: launchCode))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        ac.addAction(UIAlertAction(title: "See saved Scripts", style: .default, handler: { [weak self] _ in
+            let tableView = TableViewController()
+            tableView.scripts = self?.savedScripts ?? [Script]()
+            tableView.delegate = self
+            self?.navigationController?.pushViewController(tableView, animated: true)
+        }))
+        
         present(ac, animated: true)
     }
     
     func launchCode(action:UIAlertAction){
+        
         if action.title == "Send Alert" {
             
             DispatchQueue.main.async {
@@ -100,7 +117,7 @@ class ActionViewController: UIViewController {
         compile(from: script.text)
 
         /// save user defaults
-        let newScript = Script(url: currentPage, script: script.text)
+        let newScript = Script(url: currentPage, script: script.text, name: "New Script")
 
         savedScripts.append(newScript)
         save()
@@ -156,4 +173,26 @@ class ActionViewController: UIViewController {
         script.scrollRangeToVisible(selectedRange)
     }
 
+}
+
+extension ActionViewController: ActionViewControllerDelegate {
+    func loadScript(fromScript loadedScript: String) {
+        script.text = loadedScript
+    }
+    
+    
+    func deleteScript(idx scriptIndex: IndexPath) {
+        savedScripts.remove(at: scriptIndex.row)
+        save()
+    }
+    
+    
+    func renameScript(newName name: String, idx: IndexPath) {
+        savedScripts[idx.row].name = name
+        save()
+    }
+    
+    func getScripts() -> [Script] {
+        return savedScripts
+    }
 }

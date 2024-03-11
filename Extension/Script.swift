@@ -10,4 +10,5 @@ import Foundation
 struct Script: Codable {
     let url: String!
     let script: String!
+    var name: String!
 }

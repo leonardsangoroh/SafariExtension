@@ -7,15 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5E438072B9F11A0005798C0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E438062B9F11A0005798C0 /* TableViewController.swift */; };
 		B5F3D6CB2B888CFE003739AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F3D6CA2B888CFE003739AA /* AppDelegate.swift */; };
 		B5F3D6CD2B888CFE003739AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F3D6CC2B888CFE003739AA /* SceneDelegate.swift */; };
 		B5F3D6CF2B888CFE003739AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F3D6CE2B888CFE003739AA /* ViewController.swift */; };
 		B5F3D6D22B888CFE003739AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F3D6D02B888CFE003739AA /* Main.storyboard */; };
 		B5F3D6D42B888D00003739AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F3D6D32B888D00003739AA /* Assets.xcassets */; };
 		B5F3D6D72B888D00003739AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F3D6D52B888D00003739AA /* LaunchScreen.storyboard */; };
+		B5F3D6E52B8893B3003739AA /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F3D6E42B8893B2003739AA /* UniformTypeIdentifiers.framework */; };
+		B5F3D6E82B8893B3003739AA /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5F3D6E72B8893B3003739AA /* Media.xcassets */; };
+		B5F3D6EA2B8893B3003739AA /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F3D6E92B8893B3003739AA /* ActionViewController.swift */; };
+		B5F3D6ED2B8893B3003739AA /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5F3D6EB2B8893B3003739AA /* MainInterface.storyboard */; };
+		B5F3D6F12B8893B3003739AA /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B5F3D6E22B8893B2003739AA /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B5F3D6F72B88BCE8003739AA /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = B5F3D6F62B88BCE8003739AA /* Action.js */; };
+		B5F72B7A2B8E0A5E004EF719 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F72B792B8E0A5D004EF719 /* Script.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B5F3D6EF2B8893B3003739AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5F3D6BF2B888CFE003739AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5F3D6E12B8893B2003739AA;
+			remoteInfo = Extension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B5F3D6F52B8893B3003739AA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B5F3D6F12B8893B3003739AA /* Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B5E438062B9F11A0005798C0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B5F3D6C72B888CFE003739AA /* SafariExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafariExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5F3D6CA2B888CFE003739AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5F3D6CC2B888CFE003739AA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +57,14 @@
 		B5F3D6D32B888D00003739AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5F3D6D62B888D00003739AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5F3D6D82B888D00003739AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5F3D6E22B8893B2003739AA /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5F3D6E42B8893B2003739AA /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		B5F3D6E72B8893B3003739AA /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		B5F3D6E92B8893B3003739AA /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		B5F3D6EC2B8893B3003739AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		B5F3D6EE2B8893B3003739AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5F3D6F62B88BCE8003739AA /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
+		B5F72B792B8E0A5D004EF719 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +75,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5F3D6DF2B8893B2003739AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5F3D6E52B8893B3003739AA /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -41,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				B5F3D6C92B888CFE003739AA /* SafariExtension */,
+				B5F3D6E62B8893B3003739AA /* Extension */,
+				B5F3D6E32B8893B2003739AA /* Frameworks */,
 				B5F3D6C82B888CFE003739AA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				B5F3D6C72B888CFE003739AA /* SafariExtension.app */,
+				B5F3D6E22B8893B2003739AA /* Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +119,28 @@
 			path = SafariExtension;
 			sourceTree = "<group>";
 		};
+		B5F3D6E32B8893B2003739AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5F3D6E42B8893B2003739AA /* UniformTypeIdentifiers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B5F3D6E62B8893B3003739AA /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B5F3D6E72B8893B3003739AA /* Media.xcassets */,
+				B5F3D6E92B8893B3003739AA /* ActionViewController.swift */,
+				B5F3D6EB2B8893B3003739AA /* MainInterface.storyboard */,
+				B5F3D6EE2B8893B3003739AA /* Info.plist */,
+				B5F3D6F62B88BCE8003739AA /* Action.js */,
+				B5F72B792B8E0A5D004EF719 /* Script.swift */,
+				B5E438062B9F11A0005798C0 /* TableViewController.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +151,34 @@
 				B5F3D6C32B888CFE003739AA /* Sources */,
 				B5F3D6C42B888CFE003739AA /* Frameworks */,
 				B5F3D6C52B888CFE003739AA /* Resources */,
+				B5F3D6F52B8893B3003739AA /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B5F3D6F02B8893B3003739AA /* PBXTargetDependency */,
 			);
 			name = SafariExtension;
 			productName = SafariExtension;
 			productReference = B5F3D6C72B888CFE003739AA /* SafariExtension.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B5F3D6E12B8893B2003739AA /* Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5F3D6F22B8893B3003739AA /* Build configuration list for PBXNativeTarget "Extension" */;
+			buildPhases = (
+				B5F3D6DE2B8893B2003739AA /* Sources */,
+				B5F3D6DF2B8893B2003739AA /* Frameworks */,
+				B5F3D6E02B8893B2003739AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Extension;
+			productName = Extension;
+			productReference = B5F3D6E22B8893B2003739AA /* Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +191,9 @@
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					B5F3D6C62B888CFE003739AA = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					B5F3D6E12B8893B2003739AA = {
 						CreatedOnToolsVersion = 13.1;
 					};
 				};
@@ -116,6 +212,7 @@
 			projectRoot = "";
 			targets = (
 				B5F3D6C62B888CFE003739AA /* SafariExtension */,
+				B5F3D6E12B8893B2003739AA /* Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +225,16 @@
 				B5F3D6D72B888D00003739AA /* LaunchScreen.storyboard in Resources */,
 				B5F3D6D42B888D00003739AA /* Assets.xcassets in Resources */,
 				B5F3D6D22B888CFE003739AA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5F3D6E02B8893B2003739AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5F3D6F72B88BCE8003739AA /* Action.js in Resources */,
+				B5F3D6E82B8893B3003739AA /* Media.xcassets in Resources */,
+				B5F3D6ED2B8893B3003739AA /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +251,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5F3D6DE2B8893B2003739AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5F72B7A2B8E0A5E004EF719 /* Script.swift in Sources */,
+				B5E438072B9F11A0005798C0 /* TableViewController.swift in Sources */,
+				B5F3D6EA2B8893B3003739AA /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B5F3D6F02B8893B3003739AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5F3D6E12B8893B2003739AA /* Extension */;
+			targetProxy = B5F3D6EF2B8893B3003739AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B5F3D6D02B888CFE003739AA /* Main.storyboard */ = {
@@ -161,6 +286,14 @@
 				B5F3D6D62B888D00003739AA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B5F3D6EB2B8893B3003739AA /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B5F3D6EC2B8893B3003739AA /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -285,6 +418,7 @@
 		B5F3D6DC2B888D00003739AA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -313,6 +447,7 @@
 		B5F3D6DD2B888D00003739AA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +473,56 @@
 			};
 			name = Release;
 		};
+		B5F3D6F32B8893B3003739AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H8VZL7RW6Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Extension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardsangoroh.SafariExtension.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B5F3D6F42B8893B3003739AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H8VZL7RW6Z;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Extension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Extension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leonardsangoroh.SafariExtension.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -355,6 +540,15 @@
 			buildConfigurations = (
 				B5F3D6DC2B888D00003739AA /* Debug */,
 				B5F3D6DD2B888D00003739AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5F3D6F22B8893B3003739AA /* Build configuration list for PBXNativeTarget "Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5F3D6F32B8893B3003739AA /* Debug */,
+				B5F3D6F42B8893B3003739AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
