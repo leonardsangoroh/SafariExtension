@@ -22,6 +22,9 @@ class ActionViewController: UIViewController {
         }
     }
     
+    var savedScripts = [Script]()
+    var currentPage: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +48,22 @@ class ActionViewController: UIViewController {
                     }
                 }
             }
+        }
+        
+        /// load array from disk when app runs
+        let defaults = UserDefaults.standard
+
+        /// get optional data
+        if let savedScriptsLoad = defaults.object(forKey: "Scripts") as? Data {
+            let jsonDecoder = JSONDecoder()
+
+            do {
+                savedScripts = try jsonDecoder.decode([Script].self, from: savedScriptsLoad )
+                print("Loaded")
+            } catch {
+                fatalError("Failed to load scripts")
+            }
+
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
@@ -78,15 +97,38 @@ class ActionViewController: UIViewController {
 
     /// send data back to Safari, at wich point it will appear inside finalize( ) function
     @IBAction func done() {
+        compile(from: script.text)
+
+        /// save user defaults
+        let newScript = Script(url: currentPage, script: script.text)
+
+        savedScripts.append(newScript)
+        save()
+    }
+    
+    func compile (from script: String) {
         // Return any edited content to the host app.
         // This template doesn't do anything, so we just echo the passed in items.
         let item = NSExtensionItem()
-        let argument: NSDictionary = ["customJavaScript": script.text]
+        let argument: NSDictionary = ["customJavaScript": script]
         let webDictionary: NSDictionary = [NSExtensionJavaScriptFinalizeArgumentKey: argument]
         let customJavaScript = NSItemProvider(item: webDictionary, typeIdentifier: kUTTypePropertyList as String)
         item.attachments = [customJavaScript]
 
         extensionContext?.completeRequest(returningItems: [item])
+    }
+    
+    func save (){
+        /// encode to JSON format and save
+        /// converts Swift data types to JSON data
+        let jsonEncoder = JSONEncoder()
+
+        if let savedScript = try? jsonEncoder.encode(savedScripts) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedScript, forKey: "Scripts")
+        } else {
+            print("failed to save new script")
+        }
     }
     
     /// receive parameter of type Notification
